@@ -1,2 +1,2 @@
-# gft2
+# Aux files
 Some files
