@@ -1,0 +1,1379 @@
+{
+	"info": {
+		"_postman_id": "6b54f4bd-0f97-4501-a8e2-8a1851ea5b4f",
+		"name": "Chamadas - Projeto 27-Alga-Money-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0- Gerar Access Token ",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "senhaErik123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "erik_lima",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin@erik-company.com",
+							"description": "OBS do Erik:\n\nEsse aqui é o username de perfil de permissoes. \nQue eu mesmo defini la dentro da classe \"ResourceServerConfig\" no metodo \"configure(AuthenticationManagerBuilder auth)\".",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"description": "OBS do Erik:\n\nEsse aqui é o password de perfil de permissoes. \nQue eu mesmo defini la dnetro da classe \"ResourceServerConfig\" no metodo \"configure(AuthenticationManagerBuilder auth)\".",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "Obs do Erik:\n\nEsse aqui é o nome do esquema de autenticação que o proprio pessoal do Spring definiu. O pessoal do Spring que definiu esse nome ai.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Esse endpoint gera um token.\nAi com esse token é possível fazer outra requisição e acessar os endpoints.\n\n - Preciso preencher a aba \"Authorization\" com \"Username\" e \"Password\".\n - Preciso preencher a aba \"Body\" com as \"Keys\":  \"username\", \"password\" e \"grant_type\". \n - Depois de preencher as abas \"Authorization\" e \"Body\", a aba \"Headers\" vai ser preenchida automaticamente."
+			},
+			"response": []
+		},
+		{
+			"name": "0- Gerar novo Access Token com base em um Refresh Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "senhaErik123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "erik_lima",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"description": "Obs do Erik:\n\nEsse aqui é o nome do esquema de autenticação que o proprio pessoal do Spring definiu. O pessoal do Spring que definiu esse nome ai.",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJlcmlrIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6IjViNmM2NDk2LWI2Y2MtNDYyMy04MjlhLTRlOTA5Mzk5MjA5YiIsImV4cCI6MTU1MjA5NzUwNCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9OT1JNQUwiXSwianRpIjoiMjY2YTA0ZTUtZGYyNi00Mzk5LWJkNTUtMzhhOWNjODQzODI3IiwiY2xpZW50X2lkIjoiZXJpa19saW1hIn0.W--tpSq7ucarGPtf7_b5jCLCwUvbhbTvLoK9FcHPJOo",
+							"description": "Aqui eu coloco o Refresh Token sem a palavra \"Bearer\".",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Esse endpoint gera um token.\nAi com esse token é possível fazer outra requisição e acessar os endpoints.\n\n - Preciso preencher a aba \"Authorization\" com \"Username\" e \"Password\".\n - Preciso preencher a aba \"Body\" com as \"Keys\":  \"username\", \"password\" e \"grant_type\". \n - Depois de preencher as abas \"Authorization\" e \"Body\", a aba \"Headers\" vai ser preenchida automaticamente."
+			},
+			"response": []
+		},
+		{
+			"name": "0- Remover cookie",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/cookie/removerCookie",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cookie",
+						"removerCookie"
+					]
+				},
+				"description": "Esse endpoint gera um token.\nAi com esse token é possível fazer outra requisição e acessar os endpoints.\n\n - Preciso preencher a aba \"Authorization\" com \"Username\" e \"Password\".\n - Preciso preencher a aba \"Body\" com as \"Keys\":  \"username\", \"password\" e \"grant_type\". \n - Depois de preencher as abas \"Authorization\" e \"Body\", a aba \"Headers\" vai ser preenchida automaticamente."
+			},
+			"response": []
+		},
+		{
+			"name": "1-Chama ao endpoint - /categorias/listarTodas (Com autenticação por tokens)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTIxMjY3MDYsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiIxNjY1MTY3Yy02ODMyLTQwNTEtOWFhNy04YmMyZWMwYTExYzMiLCJjbGllbnRfaWQiOiJlcmlrX2xpbWEiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.hu0puX3l3erq0XNTkOVhv82NZ0gKoHpUCR72PoTRU1c",
+						"description": "Palavra \"Bearer\" + token de acesso.",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/categorias/listarTodas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"listarTodas"
+					]
+				},
+				"description": "Chamada do endpoint que serve para todas as categorias do banco."
+			},
+			"response": [
+				{
+					"name": "1-Chama ao endpoint - /categorias/listarTodas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/categorias/listarTodas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias",
+								"listarTodas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Mar 2019 01:17:35 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"codigo\": 1,\n        \"nome\": \"Lazer\"\n    },\n    {\n        \"codigo\": 2,\n        \"nome\": \"Alimentação\"\n    },\n    {\n        \"codigo\": 3,\n        \"nome\": \"Supermercado\"\n    },\n    {\n        \"codigo\": 4,\n        \"nome\": \"Farmácia\"\n    },\n    {\n        \"codigo\": 5,\n        \"nome\": \"Outros\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "2-Chama ao endpoint - /categorias/criar",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Korea\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/categorias/criar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"criar"
+					]
+				},
+				"description": "Chamada do endpoint que serve para cadastrar uma categoria."
+			},
+			"response": [
+				{
+					"name": "2-Chama ao endpoint - /categorias/criar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Korea\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/categorias/criar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias",
+								"criar"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "3-Chama ao endpoint - /categorias/buscarPeloCodigo/{codigo}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/categorias/buscarPeloCodigo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"buscarPeloCodigo",
+						"1"
+					]
+				},
+				"description": "Chamada do endpoint que serve para pegar uma categoria pelo seu id."
+			},
+			"response": [
+				{
+					"name": "3-Chama ao endpoint - /categorias/buscarPeloCodigo/{codigo}",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/categorias/buscarPeloCodigo/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias",
+								"buscarPeloCodigo",
+								"7"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "4-Chama ao endpoint - /pessoa/criar",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Sakura\",\n    \"endereco\" : {\n\t\t\"logradouro\"  : \"Rua Ibirapuera\",\n\t\t\"numero\"      : \"707\",\n\t\t\"complemento\" : \"Mansão 5 estrelas\",\n\t\t\"bairro\"      : \"Ibirapuera\",\n\t\t\"cep\"         : \"09792420\",\n\t\t\"cidade\"      : \"Sao Paulo\",\n\t\t\"estado\"      : \"SP\"\n\t},\n\t\"ativo\" : \"true\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa/criar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"criar"
+					]
+				},
+				"description": "Chamada do endpoint que serve para cadastrar uma Pessoa."
+			},
+			"response": [
+				{
+					"name": "4-Chama ao endpoint - /pessoa/criar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Sakura\",\n    \"endereco\" : {\n\t\t\"logradouro\"  : \"Rua Ibirapuera\",\n\t\t\"numero\"      : \"707\",\n\t\t\"complemento\" : \"Mansão 5 estrelas\",\n\t\t\"bairro\"      : \"Ibirapuera\",\n\t\t\"cep\"         : \"09792420\",\n\t\t\"cidade\"      : \"Sao Paulo\",\n\t\t\"estado\"      : \"SP\"\n\t},\n\t\"ativo\" : \"true\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/criar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"criar"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "5-Chama ao endpoint - /pessoa/buscarPeloCodigo/{codigo}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa/buscarPeloCodigo/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"buscarPeloCodigo",
+						"2"
+					]
+				},
+				"description": "Chamada do endpoint que serve para pegar uma Pessoa pelo seu id."
+			},
+			"response": [
+				{
+					"name": "5-Chama ao endpoint - /pessoa/buscarPeloCodigo/{codigo}",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/buscarPeloCodigo/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"buscarPeloCodigo",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Feb 2019 03:19:04 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"codigo\": 12,\n    \"nome\": \"Sakura\",\n    \"endereco\": {\n        \"logradouro\": \"Rua Ibirapuera\",\n        \"numero\": \"708\",\n        \"complemento\": \"Mansão 6 estrelas\",\n        \"bairro\": \"Ibirapuera\",\n        \"cep\": \"09792420\",\n        \"cidade\": \"Sao Paulo\",\n        \"estado\": \"SP\"\n    },\n    \"ativo\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "5-Chama ao endpoint - /pessoa/remover/{codigo}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa/remover/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"remover",
+						"6"
+					]
+				},
+				"description": "Chamada do endpoint que serve para deletar uma Pessoa pelo seu id."
+			},
+			"response": [
+				{
+					"name": "5-Chama ao endpoint - /pessoa/remover/{codigo}",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/remover/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"remover",
+								"6"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "6-Chama ao endpoint - /pessoa/atualizar/{codigo}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Sakura\",\n    \"endereco\" : {\n\t\t\"logradouro\"  : \"Rua Ibirapuera\",\n\t\t\"numero\"      : \"708\",\n\t\t\"complemento\" : \"Mansão 6 estrelas\",\n\t\t\"bairro\"      : \"Ibirapuera\",\n\t\t\"cep\"         : \"09792420\",\n\t\t\"cidade\"      : \"Sao Paulo\",\n\t\t\"estado\"      : \"SP\"\n\t},\n\t\"ativo\" : \"true\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa/atualizar/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"atualizar",
+						"12"
+					]
+				},
+				"description": "Chamada do endpoint que serve para atualizar uma Pessoa."
+			},
+			"response": [
+				{
+					"name": "6-Chama ao endpoint - /atualizar/{codigo}",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Sakura\",\n    \"endereco\" : {\n\t\t\"logradouro\"  : \"Rua Ibirapuera\",\n\t\t\"numero\"      : \"708\",\n\t\t\"complemento\" : \"Mansão 5 estrelas\",\n\t\t\"bairro\"      : \"Ibirapuera\",\n\t\t\"cep\"         : \"09792420\",\n\t\t\"cidade\"      : \"Sao Paulo\",\n\t\t\"estado\"      : \"SP\"\n\t},\n\t\"ativo\" : \"true\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/atualizar/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"atualizar",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Feb 2019 03:12:11 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"codigo\": 12,\n    \"nome\": \"Sakura\",\n    \"endereco\": {\n        \"logradouro\": \"Rua Ibirapuera\",\n        \"numero\": \"708\",\n        \"complemento\": \"Mansão 5 estrelas\",\n        \"bairro\": \"Ibirapuera\",\n        \"cep\": \"09792420\",\n        \"cidade\": \"Sao Paulo\",\n        \"estado\": \"SP\"\n    },\n    \"ativo\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "6-Chama ao endpoint -/pessoa/atualizacao-parcial/{codigo}/ativo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "false"
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa/atualizacao-parcial/2/ativo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa",
+						"atualizacao-parcial",
+						"2",
+						"ativo"
+					]
+				},
+				"description": "Chamada do endpoint que serve para atualizar o campo \"ativo\" de uma Pessoa."
+			},
+			"response": [
+				{
+					"name": "6-Chama ao endpoint - /atualizacao-parcial/{codigo}/ativo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "false"
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/atualizacao-parcial/12/ativo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"atualizacao-parcial",
+								"12",
+								"ativo"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 15 Feb 2019 03:51:49 GMT"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "7-Chama ao endpoint - /lancamentos/listarTodos (Com autenticação por tokens)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTIwMDA2MzYsInVzZXJfbmFtZSI6ImVyaWsiLCJhdXRob3JpdGllcyI6WyJST0xFX05PUk1BTCJdLCJqdGkiOiJjYzg0ZWM4ZC1kMmM4LTRhOWYtOTMyMC02NDZkNmY2MmE2ODEiLCJjbGllbnRfaWQiOiJlcmlrX2xpbWEiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.TnspF_B98xCUEf7ydcZvVV4bqv0RbIIWDltQx4ByL6U",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/lancamentos/listarTodos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"listarTodos"
+					]
+				},
+				"description": "Chamada do endpoint que serve para pegar todos os lacamentos do banco."
+			},
+			"response": [
+				{
+					"name": "7-Chama ao endpoint - /lancamentos/listarTodos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/listarTodos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"listarTodos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Mar 2019 01:11:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"codigo\": 1,\n        \"descricao\": \"Salário mensal\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 6500,\n        \"observacao\": \"Distribuição de lucros\",\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 1,\n            \"nome\": \"Lazer\"\n        },\n        \"pessoa\": {\n            \"codigo\": 1,\n            \"nome\": \"João Silva\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Abacaxi\",\n                \"numero\": \"10\",\n                \"complemento\": null,\n                \"bairro\": \"Brasil\",\n                \"cep\": \"38.400-12\",\n                \"cidade\": \"Uberlândia\",\n                \"estado\": \"MG\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 2,\n        \"descricao\": \"Bahamas\",\n        \"dataVencimento\": \"2017-02-10\",\n        \"dataPagamento\": \"2017-02-10\",\n        \"valor\": 100.32,\n        \"observacao\": null,\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 2,\n            \"nome\": \"Alimentação\"\n        },\n        \"pessoa\": {\n            \"codigo\": 2,\n            \"nome\": \"Maria Rita\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Sabiá\",\n                \"numero\": \"110\",\n                \"complemento\": \"Apto 101\",\n                \"bairro\": \"Colina\",\n                \"cep\": \"11.400-12\",\n                \"cidade\": \"Ribeirão Preto\",\n                \"estado\": \"SP\"\n            },\n            \"ativo\": false\n        }\n    },\n    {\n        \"codigo\": 3,\n        \"descricao\": \"Top Club\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 120,\n        \"observacao\": null,\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 3,\n            \"nome\": \"Supermercado\"\n        },\n        \"pessoa\": {\n            \"codigo\": 3,\n            \"nome\": \"Pedro Santos\",\n            \"endereco\": {\n                \"logradouro\": \"Rua da Bateria\",\n                \"numero\": \"23\",\n                \"complemento\": null,\n                \"bairro\": \"Morumbi\",\n                \"cep\": \"54.212-12\",\n                \"cidade\": \"Goiânia\",\n                \"estado\": \"GO\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 4,\n        \"descricao\": \"CEMIG\",\n        \"dataVencimento\": \"2017-02-10\",\n        \"dataPagamento\": \"2017-02-10\",\n        \"valor\": 110.44,\n        \"observacao\": \"Geração\",\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 3,\n            \"nome\": \"Supermercado\"\n        },\n        \"pessoa\": {\n            \"codigo\": 4,\n            \"nome\": \"Ricardo Pereira\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Motorista\",\n                \"numero\": \"123\",\n                \"complemento\": \"Apto 302\",\n                \"bairro\": \"Aparecida\",\n                \"cep\": \"38.400-12\",\n                \"cidade\": \"Salvador\",\n                \"estado\": \"BA\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 5,\n        \"descricao\": \"DMAE\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 200.3,\n        \"observacao\": null,\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 3,\n            \"nome\": \"Supermercado\"\n        },\n        \"pessoa\": {\n            \"codigo\": 5,\n            \"nome\": \"Josué Mariano\",\n            \"endereco\": {\n                \"logradouro\": \"Av Rio Branco\",\n                \"numero\": \"321\",\n                \"complemento\": null,\n                \"bairro\": \"Jardins\",\n                \"cep\": \"56.400-12\",\n                \"cidade\": \"Natal\",\n                \"estado\": \"RN\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 6,\n        \"descricao\": \"Extra\",\n        \"dataVencimento\": \"2017-03-10\",\n        \"dataPagamento\": \"2017-03-10\",\n        \"valor\": 1010.32,\n        \"observacao\": null,\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 4,\n            \"nome\": \"Farmácia\"\n        },\n        \"pessoa\": {\n            \"codigo\": 6,\n            \"nome\": \"Pedro Barbosa\",\n            \"endereco\": {\n                \"logradouro\": \"Av Brasil\",\n                \"numero\": \"100\",\n                \"complemento\": null,\n                \"bairro\": \"Tubalina\",\n                \"cep\": \"77.400-12\",\n                \"cidade\": \"Porto Alegre\",\n                \"estado\": \"RS\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 7,\n        \"descricao\": \"Bahamas\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 500,\n        \"observacao\": null,\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 1,\n            \"nome\": \"Lazer\"\n        },\n        \"pessoa\": {\n            \"codigo\": 7,\n            \"nome\": \"Henrique Medeiros\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Sapo\",\n                \"numero\": \"1120\",\n                \"complemento\": \"Apto 201\",\n                \"bairro\": \"Centro\",\n                \"cep\": \"12.400-12\",\n                \"cidade\": \"Rio de Janeiro\",\n                \"estado\": \"RJ\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 8,\n        \"descricao\": \"Top Club\",\n        \"dataVencimento\": \"2017-03-10\",\n        \"dataPagamento\": \"2017-03-10\",\n        \"valor\": 400.32,\n        \"observacao\": null,\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 4,\n            \"nome\": \"Farmácia\"\n        },\n        \"pessoa\": {\n            \"codigo\": 8,\n            \"nome\": \"Carlos Santana\",\n            \"endereco\": {\n                \"logradouro\": \"Rua da Manga\",\n                \"numero\": \"433\",\n                \"complemento\": null,\n                \"bairro\": \"Centro\",\n                \"cep\": \"31.400-12\",\n                \"cidade\": \"Belo Horizonte\",\n                \"estado\": \"MG\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 9,\n        \"descricao\": \"Despachante\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 123.64,\n        \"observacao\": \"Multas\",\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 3,\n            \"nome\": \"Supermercado\"\n        },\n        \"pessoa\": {\n            \"codigo\": 9,\n            \"nome\": \"Leonardo Oliveira\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Músico\",\n                \"numero\": \"566\",\n                \"complemento\": null,\n                \"bairro\": \"Segismundo Pereira\",\n                \"cep\": \"38.400-00\",\n                \"cidade\": \"Uberlândia\",\n                \"estado\": \"MG\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 10,\n        \"descricao\": \"Pneus\",\n        \"dataVencimento\": \"2017-04-10\",\n        \"dataPagamento\": \"2017-04-10\",\n        \"valor\": 665.33,\n        \"observacao\": null,\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 5,\n            \"nome\": \"Outros\"\n        },\n        \"pessoa\": {\n            \"codigo\": 10,\n            \"nome\": \"Isabela Martins\",\n            \"endereco\": {\n                \"logradouro\": \"Rua da Terra\",\n                \"numero\": \"1233\",\n                \"complemento\": \"Apto 10\",\n                \"bairro\": \"Vigilato\",\n                \"cep\": \"99.400-12\",\n                \"cidade\": \"Manaus\",\n                \"estado\": \"AM\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 11,\n        \"descricao\": \"Café\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 8.32,\n        \"observacao\": null,\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 1,\n            \"nome\": \"Lazer\"\n        },\n        \"pessoa\": {\n            \"codigo\": 5,\n            \"nome\": \"Josué Mariano\",\n            \"endereco\": {\n                \"logradouro\": \"Av Rio Branco\",\n                \"numero\": \"321\",\n                \"complemento\": null,\n                \"bairro\": \"Jardins\",\n                \"cep\": \"56.400-12\",\n                \"cidade\": \"Natal\",\n                \"estado\": \"RN\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 12,\n        \"descricao\": \"Eletrônicos\",\n        \"dataVencimento\": \"2017-04-10\",\n        \"dataPagamento\": \"2017-04-10\",\n        \"valor\": 2100.32,\n        \"observacao\": null,\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 5,\n            \"nome\": \"Outros\"\n        },\n        \"pessoa\": {\n            \"codigo\": 4,\n            \"nome\": \"Ricardo Pereira\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Motorista\",\n                \"numero\": \"123\",\n                \"complemento\": \"Apto 302\",\n                \"bairro\": \"Aparecida\",\n                \"cep\": \"38.400-12\",\n                \"cidade\": \"Salvador\",\n                \"estado\": \"BA\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 14,\n        \"descricao\": \"Café\",\n        \"dataVencimento\": \"2017-04-10\",\n        \"dataPagamento\": \"2017-04-10\",\n        \"valor\": 4.32,\n        \"observacao\": null,\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 4,\n            \"nome\": \"Farmácia\"\n        },\n        \"pessoa\": {\n            \"codigo\": 2,\n            \"nome\": \"Maria Rita\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Sabiá\",\n                \"numero\": \"110\",\n                \"complemento\": \"Apto 101\",\n                \"bairro\": \"Colina\",\n                \"cep\": \"11.400-12\",\n                \"cidade\": \"Ribeirão Preto\",\n                \"estado\": \"SP\"\n            },\n            \"ativo\": false\n        }\n    },\n    {\n        \"codigo\": 15,\n        \"descricao\": \"Lanche\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 10.2,\n        \"observacao\": null,\n        \"tipo\": \"DESPESA\",\n        \"categoria\": {\n            \"codigo\": 4,\n            \"nome\": \"Farmácia\"\n        },\n        \"pessoa\": {\n            \"codigo\": 1,\n            \"nome\": \"João Silva\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Abacaxi\",\n                \"numero\": \"10\",\n                \"complemento\": null,\n                \"bairro\": \"Brasil\",\n                \"cep\": \"38.400-12\",\n                \"cidade\": \"Uberlândia\",\n                \"estado\": \"MG\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 16,\n        \"descricao\": \"Lucro to Erik\",\n        \"dataVencimento\": \"2017-06-10\",\n        \"dataPagamento\": null,\n        \"valor\": 16500,\n        \"observacao\": null,\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 1,\n            \"nome\": \"Lazer\"\n        },\n        \"pessoa\": {\n            \"codigo\": 1,\n            \"nome\": \"João Silva\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Abacaxi\",\n                \"numero\": \"10\",\n                \"complemento\": null,\n                \"bairro\": \"Brasil\",\n                \"cep\": \"38.400-12\",\n                \"cidade\": \"Uberlândia\",\n                \"estado\": \"MG\"\n            },\n            \"ativo\": true\n        }\n    },\n    {\n        \"codigo\": 17,\n        \"descricao\": \"Lucro to Erik\",\n        \"dataVencimento\": \"1989-10-25\",\n        \"dataPagamento\": null,\n        \"valor\": 20000,\n        \"observacao\": null,\n        \"tipo\": \"RECEITA\",\n        \"categoria\": {\n            \"codigo\": 1,\n            \"nome\": \"Lazer\"\n        },\n        \"pessoa\": {\n            \"codigo\": 1,\n            \"nome\": \"João Silva\",\n            \"endereco\": {\n                \"logradouro\": \"Rua do Abacaxi\",\n                \"numero\": \"10\",\n                \"complemento\": null,\n                \"bairro\": \"Brasil\",\n                \"cep\": \"38.400-12\",\n                \"cidade\": \"Uberlândia\",\n                \"estado\": \"MG\"\n            },\n            \"ativo\": true\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "8-Chama ao endpoint - /lancamentos/buscarPeloCodigo/{codigo}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/lancamentos/buscarPeloCodigo/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"buscarPeloCodigo",
+						"16"
+					]
+				},
+				"description": "Chamada do endpoint que serve para pegar uma Lancamento pelo seu id."
+			},
+			"response": [
+				{
+					"name": "5-Chama ao endpoint - /pessoa/buscarPeloCodigo/{codigo}",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa/buscarPeloCodigo/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"buscarPeloCodigo",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Feb 2019 03:19:04 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"codigo\": 12,\n    \"nome\": \"Sakura\",\n    \"endereco\": {\n        \"logradouro\": \"Rua Ibirapuera\",\n        \"numero\": \"708\",\n        \"complemento\": \"Mansão 6 estrelas\",\n        \"bairro\": \"Ibirapuera\",\n        \"cep\": \"09792420\",\n        \"cidade\": \"Sao Paulo\",\n        \"estado\": \"SP\"\n    },\n    \"ativo\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "9-Chama ao endpoint - /lancamentos/criar",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descricao\": \"Lucro to Erik\",\n    \"dataVencimento\": \"2017-06-10\",\n    \"valor\": 20000,\n    \"tipo\": \"RECEITA\",\n    \n    \"categoria\": {\n        \"codigo\": 1\n    },\n    \n    \"pessoa\" : {\n    \t\"codigo\": 2\n    }\n    \n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/lancamentos/criar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"criar"
+					]
+				},
+				"description": "Chamada do endpoint que serve para criar um novo Lancamento."
+			},
+			"response": [
+				{
+					"name": "8-Chama ao endpoint - /lancamentos/criar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"Gastos do Erik\",\n    \"dataVencimento\": \"2017-06-10\",\n    \"valor\": 16500,\n    \"tipo\": \"DEBITO\",\n    \n    \"categoria\": {\n        \"codigo\": 1\n    },\n    \n    \"pessoa\" : {\n    \t\"codigo\": 1\n    }\n    \n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/criar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"criar"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "10-Chama ao endpoint - /lancamentos/pesquisarPor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/lancamentos/pesquisarPor?descricao=Erik&dataVencimentoDe=2017-03-10&dataVencimentoAte=2017-04-10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"pesquisarPor"
+					],
+					"query": [
+						{
+							"key": "descricao",
+							"value": "Erik",
+							"description": "Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nTexto no qual eu quero procurar na coluna \"descricao\" da tabela \"Lancamento\" no banco de dados. Vai ficar tipo assim:\n\nwhere descricao like '%parametroQuePassei%'\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "dataVencimentoDe",
+							"value": "2017-03-10",
+							"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "dataVencimentoAte",
+							"value": "2017-04-10",
+							"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+						}
+					]
+				},
+				"description": "Chamada do endpoint que serve para pegar todos os lacamentos do banco."
+			},
+			"response": [
+				{
+					"name": "10-Chama ao endpoint - /lancamentos/pesquisarPor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/pesquisarPor?descricao=Erik&dataVencimentoDe=2017-03-10&dataVencimentoAte=2017-04-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"pesquisarPor"
+							],
+							"query": [
+								{
+									"key": "descricao",
+									"value": "Erik",
+									"description": "Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nTexto no qual eu quero procurar na coluna \"descricao\" da tabela \"Lancamento\" no banco de dados. Vai ficar tipo assim:\n\nwhere descricao like '%parametroQuePassei%'\n\nObs: Esse parametro eh opcional."
+								},
+								{
+									"key": "dataVencimentoDe",
+									"value": "2017-03-10",
+									"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+								},
+								{
+									"key": "dataVencimentoAte",
+									"value": "2017-04-10",
+									"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "11-Chama ao endpoint - /lancamentos/pesquisarPorComPaginacao",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTI2NTIxNDUsInVzZXJfbmFtZSI6ImFkbWluQGVyaWstY29tcGFueS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1BFUk1JVEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFUk1JVEVfUEVTUVVJU0FSX1BFU1NPQSIsIlJPTEVfUEVSTUlURV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfUEVSTUlURV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVJNSVRFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFUk1JVEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1BFUk1JVEVfUEVTUVVJU0FSX0NBVEVHT1JJQSIsIlJPTEVfUEVSTUlURV9SRU1PVkVSX0xBTkNBTUVOVE8iXSwianRpIjoiMDA1YTExODYtMTc1Ny00MmNjLWFiNDQtN2U0YmE0MWQ3OGIwIiwiY2xpZW50X2lkIjoiZXJpa19saW1hIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.zlfebTsNsx6S8vpHt-tt3O1Ja5wluFaLougullsl0-c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/lancamentos/pesquisarPorComPaginacao?descricao=Bahamas&dataVencimentoDe=2017-02-10&dataVencimentoAte=2017-03-10&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"pesquisarPorComPaginacao"
+					],
+					"query": [
+						{
+							"key": "descricao",
+							"value": "Bahamas",
+							"description": "Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nTexto no qual eu quero procurar na coluna \"descricao\" da tabela \"Lancamento\" no banco de dados. Vai ficar tipo assim:\n\nwhere descricao like '%parametroQuePassei%'\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "dataVencimentoDe",
+							"value": "2017-02-10",
+							"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "dataVencimentoAte",
+							"value": "2017-03-10",
+							"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "page",
+							"value": "0",
+							"description": "Pegar resultados apartir dessa pagina. Esse valor vai preencher o campo \"page\" do objeto \"Pageable\" que o endpoint esta esperando receber como parametro.\n\nObs: Começa pela pagina zero.\nObs: Esse parametro tem que ter obrigatoriamente esse nome \"page\".\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"description": "Quantidade de resultados que desejo por pagina. Esse valor vai preencher o campo \"size\" do objeto \"Pageable\" que o endpoint esta esperando receber como parametro.\n\nObs: Esse parametro tem que ter obrigatoriamente esse nome \"size\".\nObs: Esse parametro eh opcional."
+						}
+					]
+				},
+				"description": "Chamada do endpoint que serve para pegar todos os lacamentos do banco."
+			},
+			"response": [
+				{
+					"name": "11-Chama ao endpoint - /lancamentos/pesquisarPorComPaginacao",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/pesquisarPorComPaginacao?descricao=Bahamas&dataVencimentoDe=2017-02-10&dataVencimentoAte=2017-03-10&page=0&size=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"pesquisarPorComPaginacao"
+							],
+							"query": [
+								{
+									"key": "descricao",
+									"value": "Bahamas",
+									"description": "Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nTexto no qual eu quero procurar na coluna \"descricao\" da tabela \"Lancamento\" no banco de dados. Vai ficar tipo assim:\n\nwhere descricao like '%parametroQuePassei%'\n\nObs: Esse parametro eh opcional."
+								},
+								{
+									"key": "dataVencimentoDe",
+									"value": "2017-02-10",
+									"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+								},
+								{
+									"key": "dataVencimentoAte",
+									"value": "2017-03-10",
+									"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Pegar resultados apartir dessa pagina. Esse valor vai preencher o campo \"page\" do objeto \"Pageable\" que o endpoint esta esperando receber como parametro.\n\nObs: Começa pela pagina zero.\nObs: Esse parametro tem que ter obrigatoriamente esse nome \"page\".\nObs: Esse parametro eh opcional."
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"description": "Quantidade de resultados que desejo por pagina. Esse valor vai preencher o campo \"size\" do objeto \"Pageable\" que o endpoint esta esperando receber como parametro.\n\nObs: Esse parametro tem que ter obrigatoriamente esse nome \"size\".\nObs: Esse parametro eh opcional."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Mar 2019 01:04:29 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"codigo\": 2,\n            \"descricao\": \"Bahamas\",\n            \"dataVencimento\": \"2017-02-10\",\n            \"dataPagamento\": \"2017-02-10\",\n            \"valor\": 100.32,\n            \"observacao\": null,\n            \"tipo\": \"DESPESA\",\n            \"categoria\": {\n                \"codigo\": 2,\n                \"nome\": \"Alimentação\"\n            },\n            \"pessoa\": {\n                \"codigo\": 2,\n                \"nome\": \"Maria Rita\",\n                \"endereco\": {\n                    \"logradouro\": \"Rua do Sabiá\",\n                    \"numero\": \"110\",\n                    \"complemento\": \"Apto 101\",\n                    \"bairro\": \"Colina\",\n                    \"cep\": \"11.400-12\",\n                    \"cidade\": \"Ribeirão Preto\",\n                    \"estado\": \"SP\"\n                },\n                \"ativo\": false\n            }\n        }\n    ],\n    \"last\": true,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": null,\n    \"first\": true,\n    \"numberOfElements\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "12-Chama ao endpoint - /lancamentos/pesquisarResumoPorComPaginacao",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTMzOTE2MTcsInVzZXJfbmFtZSI6ImFkbWluQGVyaWstY29tcGFueS5jb20iLCJhdXRob3JpdGllcyI6WyJST0xFX1BFUk1JVEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFUk1JVEVfUEVTUVVJU0FSX1BFU1NPQSIsIlJPTEVfUEVSTUlURV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfUEVSTUlURV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVJNSVRFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFUk1JVEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1BFUk1JVEVfUEVTUVVJU0FSX0NBVEVHT1JJQSIsIlJPTEVfUEVSTUlURV9SRU1PVkVSX0xBTkNBTUVOVE8iXSwianRpIjoiNTAxNzMzYmMtYzUxYS00NjQ0LWJlODEtNDJjZDE3YzAwZDVjIiwiY2xpZW50X2lkIjoiZXJpa19saW1hIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.7Me839CHtjNBFS8d6vCkOYwjOKsFeDu1lqJpp_CXH0A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/lancamentos/pesquisarResumoPorComPaginacao?descricao=Bahamas&dataVencimentoDe=2017-02-10&dataVencimentoAte=2017-03-10&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"pesquisarResumoPorComPaginacao"
+					],
+					"query": [
+						{
+							"key": "descricao",
+							"value": "Bahamas",
+							"description": "Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nTexto no qual eu quero procurar na coluna \"descricao\" da tabela \"Lancamento\" no banco de dados. Vai ficar tipo assim:\n\nwhere descricao like '%parametroQuePassei%'\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "dataVencimentoDe",
+							"value": "2017-02-10",
+							"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "dataVencimentoAte",
+							"value": "2017-03-10",
+							"description": "No formato yyy-mm-dd. Campo para preencher o objeto \"LancamentoFiltroDePesquisa\".\n\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "page",
+							"value": "0",
+							"description": "Pegar resultados apartir dessa pagina. Esse valor vai preencher o campo \"page\" do objeto \"Pageable\" que o endpoint esta esperando receber como parametro.\n\nObs: Começa pela pagina zero.\nObs: Esse parametro tem que ter obrigatoriamente esse nome \"page\".\nObs: Esse parametro eh opcional."
+						},
+						{
+							"key": "size",
+							"value": "10",
+							"description": "Quantidade de resultados que desejo por pagina. Esse valor vai preencher o campo \"size\" do objeto \"Pageable\" que o endpoint esta esperando receber como parametro.\n\nObs: Esse parametro tem que ter obrigatoriamente esse nome \"size\".\nObs: Esse parametro eh opcional."
+						}
+					]
+				},
+				"description": "Chamada do endpoint que serve para pegar todos os lacamentos do banco."
+			},
+			"response": []
+		},
+		{
+			"name": "13-Chama ao endpoint - /lancamentos/remover/{codigo}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/lancamentos/remover/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos",
+						"remover",
+						"12"
+					]
+				},
+				"description": "Chamada do endpoint que serve para deletar uma Pessoa pelo seu id."
+			},
+			"response": [
+				{
+					"name": "12-Chama ao endpoint - /lancamentos/remover/{codigo}",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/lancamentos/remover/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"lancamentos",
+								"remover",
+								"12"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
