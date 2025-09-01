@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "d1cf0620-1a09-403a-bdb2-a62b7e33c894",
+		"name": "🎮Neo RPG Battle Backend - Postman requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11576343"
+	},
+	"item": [
+		{
+			"name": "🎮1-Requests - Swagger documentation",
+			"item": [
+				{
+					"name": "1-Localhost | API documentation (Swagger) | HTML",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin_puppies_app",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "IjyWSjHxAGiBCZ2pXAsxIgzLHQozp92lSX6pid0aqrPwN6GpEH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/swagger-ui/index.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"swagger-ui",
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-Localhost | API documentation (Swagger) | JSON",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin_puppies_app",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "IjyWSjHxAGiBCZ2pXAsxIgzLHQozp92lSX6pid0aqrPwN6GpEH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v3/api-docs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v3",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-Localhost | API documentation (Swagger) | YAML",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin_puppies_app",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "IjyWSjHxAGiBCZ2pXAsxIgzLHQozp92lSX6pid0aqrPwN6GpEH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v3/api-docs.yaml",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v3",
+								"api-docs.yaml"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🎮2-Requests - CharacterController",
+			"item": [
+				{
+					"name": "1-Localhost | Create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mario\",\r\n    \"job\": \"MAGE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						},
+						"description": "Esse endpoint simples apenas retorna um texto. Quaçquer perfil pode acessar."
+					},
+					"response": []
+				},
+				{
+					"name": "2-Localhost | Get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-Localhost | Get all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🎮3-Requests - BattleController",
+			"item": [
+				{
+					"name": "1-Localhost | Battle",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/battle?attackerId=1&defenderId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"battle"
+							],
+							"query": [
+								{
+									"key": "attackerId",
+									"value": "1"
+								},
+								{
+									"key": "defenderId",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Esse endpoint simples apenas retorna um texto. Quaçquer perfil pode acessar."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
